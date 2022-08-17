@@ -1,0 +1,50 @@
+<!doctype html>
+	<head>
+		<style>
+			/* CSS comes here */
+			body {
+			    padding:20px;
+			}
+			input {
+			    padding:5px;
+			    background-color:transparent;
+			    border:none;
+			    border-bottom:solid 4px #8c52ff;
+			    width:250px;
+			    font-size:16px;
+			}
+			
+			.qr-btn {
+			    background-color:#8c52ff;
+			    padding:8px;
+			    color:white;
+			    cursor:pointer;
+			}
+		</style>
+		
+		<title>QR Code Generator</title>
+	</head>
+	<body>
+        <canvas id="qr-code"></canvas>
+		<br><br><br><br><br><br><br><br><br><br>
+		<form method="post">
+		<button>Refresh !</button>
+	</form>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+		<script>
+			/* JS comes here */
+			var qr;
+			(function() {
+                    qr = new QRious({
+                    element: document.getElementById('qr-code'),
+                    size: 200,
+                    value: '{{ qrnum }}',									
+                });
+				console.log('{{ qrnum }}')
+            })();
+            
+		</script>
+        
+	</body>
+</html>

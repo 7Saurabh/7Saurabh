@@ -1,0 +1,17 @@
+<!-- <meta http-equiv="refresh" content="5" /> -->
+<table border="1">
+  <tr>
+    <th>id</th>
+    <th>Username</th>
+    <th>Password</th>
+    <th>Attendance</th>
+  </tr>
+  {% for row in rows %}
+  <tr>
+    <td>{{ row.id }}</td>
+    <td>{{ row.username }}</td>
+    <td>{{ row.password }}</td>
+    <td>{{ row.attendance}}</td>
+  </tr>
+  {% endfor %}
+</table>

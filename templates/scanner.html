@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Html-Qrcode Demo</title>
+    <body>
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for
+      message in messages %}
+      <p>{{ message }}</p>
+      {% endfor %} {% endif %} {% endwith %}
+      <div id="qr-reader" style="width: 500px"></div>
+      <div id="qr-reader-results"></div>
+      <h1>{{push_var}}</h1>
+    </body>
+    <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
+    <script>
+      function docReady(fn) {
+        // see if DOM is already available
+        if (
+          document.readyState === "complete" ||
+          document.readyState === "interactive"
+        ) {
+          // call on next available tick
+          setTimeout(fn, 1);
+        } else {
+          document.addEventListener("DOMContentLoaded", fn);
+        }
+      }
+
+      docReady(function () {
+        var resultContainer = document.getElementById("qr-reader-results");
+        var lastResult,
+          countResults = 0;
+        function onScanSuccess(decodedText, decodedResult) {
+          if (decodedText !== lastResult) {
+            ++countResults;
+            lastResult = decodedText;
+            // Handle on success condition with the decoded message.
+            console.log(`Scan result ${decodedText}`, decodedResult);
+            console.log(countResults);
+
+            if ("{{ DoIt}}" == "do now") {
+              document.write("done mfs");
+            }
+
+            const request = new XMLHttpRequest();
+            request.open(
+              "POST",
+              `ProcessUserinfo/${JSON.stringify(decodedText)}`
+            );
+            request.send();
+          }
+        }
+
+        var html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", {
+          fps: 10,
+          qrbox: 250,
+          rememberLastUsedCamera: true,
+        });
+        html5QrcodeScanner.render(onScanSuccess);
+      });
+    </script>
+  </head>
+</html>

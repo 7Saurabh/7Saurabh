@@ -1,0 +1,18 @@
+database has been fixed!
+now there are two tables rather than one 
+one table { name: User } will be for temporary use { to take data of one day }
+another table { name : attendance } will be for permenant data of Students 
+first table have this columns { id username password attendance }
+second talbe have this columns { date ids }
+
+# Now i have made subject option to choose while marking the attendance
+
+
+HAVE TO DO 
+1. add reset route to any code which will just make to restart the route. (cause onece the route has been restarted it will
+automatically check if date has been changed or not, and accordingly does his job)
+    It can be triggered when date been changed 
+    or with any route.
+
+2. If you have to reset db means add today's date to db access "resetUserDB" route. It will reset and add new date and redirect 
+to "register" route.

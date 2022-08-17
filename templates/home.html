@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <title>Welcome !</title>
+  </head>
+  <body>
+    <form action="{{ url_for('qrgenerate') }}" method="post">
+      <button>QRCode</button>
+    </form>
+
+    <form action="{{ url_for('qrscan') }}" method="post">
+      <button>Scan</button>
+    </form>
+  </body>
+</html>

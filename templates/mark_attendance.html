@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Mark Attendance</title>
+  </head>
+  <body>
+    {% with messages = get_flashed_messages() %} {% if messages %} {% for
+    message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %} {% endif %} {% endwith %}
+    <form method="post">
+      <div>
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required />
+        <br />
+
+        <input type="radio" name="subject" value="SPM" />
+        <label name="subject">SPM</label><br />
+        <input type="radio" name="subject" value="AWP" />
+        <label name="subject">AWP</label><br />
+
+        <br />
+        <button type="submit">Add Attendance</button>
+      </div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<table border="1">
+  <tr>
+    <th>DATE</th>
+    <th>AWP ID'S</th>
+    <th>SPM ID'S</th>
+  </tr>
+  {% for row in rows %}
+  <tr>
+    <td>{{ row.date }}</td>
+    <td>{{ row.awp_ids }}</td>
+    <td>{{ row.spm_ids }}</td>
+  </tr>
+  {% endfor %}
+</table>
